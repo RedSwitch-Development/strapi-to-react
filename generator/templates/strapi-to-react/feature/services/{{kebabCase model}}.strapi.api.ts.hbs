@@ -1,0 +1,12 @@
+import {ModelRoutes, ModelApiService} from "services/strapi";
+import { I{{pascalCase model}} } from "features/{{kebabCase featureFolderName}}";
+import {strapi} from "lib/strapi-api";
+import axios from "axios";
+
+class {{pascalCase model}}ApiSingleton extends ModelApiService<I{{pascalCase model}}> {
+
+}
+
+export const {{camelCase model}}Api = new {{pascalCase model}}ApiSingleton(ModelRoutes.{{pascalCase model}})
+
+

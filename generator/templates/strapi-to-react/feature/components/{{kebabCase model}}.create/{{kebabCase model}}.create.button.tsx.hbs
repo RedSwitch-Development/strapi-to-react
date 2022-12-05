@@ -1,0 +1,40 @@
+import {Button, Text} from "@mantine/core";
+import { {{pascalCase model}}CreateForm } from "./{{kebabCase model}}.create.form";
+import { useModals } from "@mantine/modals";
+import { Plus } from "tabler-icons-react";
+
+interface Props {
+    onSubmitForm:(values:any) => void,
+}
+
+export function {{pascalCase model}}CreateButton({ onSubmitForm }:Props) {
+    const modals = useModals();
+
+    async function _onSubmitForm(values:any){
+        await onSubmitForm(values);
+        modals.closeAll();
+    }
+
+    const render{{pascalCase model}}Form = () => {
+        modals.openModal({
+            withCloseButton:true,
+            closeOnClickOutside:true,
+            closeOnEscape:true,
+            size:"900",
+            overflow:'outside',
+            title: (
+                <Text size={'xl'}>Create New {{titleCase model}}</Text>
+            ),
+            children: (
+                <{{pascalCase model}}CreateForm onSubmitQuery={_onSubmitForm}/>
+            ),
+        })
+        return false;
+    }
+
+    return (
+        <Button leftIcon={<Plus size={18}/>} onClick={render{{pascalCase model}}Form}>
+            New {{titleCase model}}
+        </Button>
+    )
+}

@@ -1,0 +1,36 @@
+import {Button, Grid} from '@mantine/core';
+import {useForm} from '@mantine/form';
+import {Filter} from 'tabler-icons-react';
+import { I{{pascalCase model}} } from "features/{{kebabCase featureFolderName}}"
+
+interface Props {
+    onSubmitQuery?: (query: any) => void,
+    initialValues?: any,
+}
+
+export function {{pascalCase model}}Filters({
+    onSubmitQuery,
+    initialValues,
+}: Props) {
+    const form = useForm<I{{pascalCase model}}>({
+        initialValues: initialValues || {}
+    })
+
+    function onSubmit(values: typeof form.values) {
+        if (onSubmitQuery) {
+            onSubmitQuery(values)
+        }
+    }
+
+    return (
+        <form onSubmit={form.onSubmit(onSubmit)}>
+            <Grid>
+                <Grid.Col span={2}>
+                    <Button color="blue" leftIcon={<Filter size={18}/>} fullWidth type="submit">
+                        Filter Results
+                    </Button>
+                </Grid.Col>
+            </Grid>
+        </form>
+    )
+}

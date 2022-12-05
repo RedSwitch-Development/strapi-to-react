@@ -1,0 +1,11 @@
+const {{camelCase model}}FiltersSerializableDates: string[] = []
+const {{camelCase model}}FiltersSerializableJoins: string[] = []
+const qsMap = {name: "$containsi"}
+
+export const {{camelCase model}}FiltersSettings = {
+    serializable: {
+        dates: {{camelCase model}}FiltersSerializableDates,
+        joins: {{camelCase model}}FiltersSerializableJoins
+    },
+    qsMap
+};

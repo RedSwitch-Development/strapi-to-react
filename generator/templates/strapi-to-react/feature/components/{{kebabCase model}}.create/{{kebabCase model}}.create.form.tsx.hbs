@@ -1,0 +1,45 @@
+import {useState} from 'react';
+import {Box, Button, Grid, Group} from '@mantine/core';
+import {useForm} from '@mantine/form';
+import {ArrowRight} from "tabler-icons-react";
+import { I{{pascalCase model}} } from "features/{{kebabCase featureFolderName}}"
+
+interface Props {
+    onSubmitQuery?: (query: any) => void,
+    initialValues?: any
+}
+
+export function {{pascalCase model}}CreateForm({onSubmitQuery, initialValues}: Props) {
+    const [creating{{pascalCase model}}, setCreating{{pascalCase model}}] = useState(false);
+    const form = useForm<I{{pascalCase model}}>({
+        initialValues: initialValues || {},
+        validate: {},
+    });
+
+
+    async function onSubmit(values: typeof form.values) {
+        if (onSubmitQuery) {
+            setCreating{{pascalCase model}}(true);
+            await onSubmitQuery(values)
+            setCreating{{pascalCase model}}(false);
+        }
+    }
+
+
+    return (
+        <Box mx="auto">
+            <form onSubmit={form.onSubmit(onSubmit)}>
+                <Grid>
+                    <Grid.Col sm={12}>
+                        <Group position="right" mt="md">
+                            <Button type="submit" loading={ creating{{pascalCase model}} }
+                                    rightIcon={<ArrowRight/>}>
+                                Add New {{titleCase model}}
+                            </Button>
+                        </Group>
+                    </Grid.Col>
+                </Grid>
+            </form>
+        </Box>
+    )
+}

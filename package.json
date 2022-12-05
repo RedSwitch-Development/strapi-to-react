@@ -1,0 +1,30 @@
+{
+  "name": "@redswitch/generator",
+  "version": "0.0.1",
+  "description": "A Strapi to Feature-based React frontend generator for models",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "generate": "plop"
+  },
+  "bin": {
+    "rs-gen": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RedSwitch-Development/strapi-to-react.git"
+  },
+  "author": "RedSwitch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RedSwitch-Development/strapi-to-react/issues"
+  },
+  "homepage": "https://github.com/RedSwitch-Development/strapi-to-react#readme",
+  "dependencies": {
+    "app-root-path": "^3.1.0",
+    "chalk": "^4.1.2",
+    "minimist": "^1.2.7",
+    "plop": "^3.1.1",
+    "yargs": "^17.6.2"
+  }
+}

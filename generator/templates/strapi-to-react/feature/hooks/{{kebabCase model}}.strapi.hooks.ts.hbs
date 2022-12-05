@@ -1,0 +1,12 @@
+import {ModelHooks} from "services/strapi";
+import { {{camelCase model}}Api } from "../services/{{kebabCase model}}.strapi.api";
+import { I{{pascalCase model}} } from "../types/{{kebabCase model}}.types";
+
+class {{pascalCase model}}ApiHooks extends ModelHooks<I{{pascalCase model}}> {
+    /** Add more functions or properties here that are not described in the Base Strapi
+     *  Model Hooks Service.
+     **/
+
+}
+
+export const {{camelCase model}}ApiHooks = new {{pascalCase model}}ApiHooks({{camelCase model}}Api);
